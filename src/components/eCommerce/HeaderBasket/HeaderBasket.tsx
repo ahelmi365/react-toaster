@@ -1,4 +1,4 @@
-import BasketLogo from "../../common/BasketLogo/BasketLogo";
+import {BasketLogo} from "@components/common";
 
 import styles from "./styles.module.css";
 const { basketContainer, basketQuantity } = styles;
