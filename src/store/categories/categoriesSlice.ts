@@ -1,20 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import actGetCategories from "./act/actGetCategories";
+import { ICategory } from "@customTypes/category";
+import { TLoading } from "@customTypes/shared";
 
-export interface ICategory {
-  id: number;
-  title: string;
-  prefix: TCategoryPrefix;
-  img: string | null;
-}
-type TCategoryPrefix = "men" | "women" | "baby" | "sport";
-
-interface ICategoriesState {
+export interface ICategoriesState {
   records: ICategory[];
-  loading: "idle" | "pending" | "succeeded" | "failed";
+  loading: TLoading;
   error: string | null;
 }
+
 const initialState: ICategoriesState = {
   records: [],
   loading: "idle",
