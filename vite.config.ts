@@ -5,8 +5,9 @@ const serverDomain = "http://localhost:5005";
 // https://vite.dev/config/
 export default defineConfig({
   server: {
+
     proxy: {
-      "/categories": {
+      "/xcategories": {
         target: `${serverDomain}`,
         changeOrigin: true,
       },
