@@ -1,13 +1,16 @@
 import { Container } from "react-bootstrap";
 import styles from "./styles.module.css";
-import Header from "../components/common/Header/Header";
+import {Header} from "../components/common";
+import {Footer} from './../components/common';
 const { container, wrapper } = styles;
 const MainLayout = () => {
   return (
     <Container className={container}>
       <div className={wrapper}>
       <Header/>
+
       </div>
+      <Footer/>
     </Container>
   );
 };
