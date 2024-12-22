@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <Container className={container}>
       <Header />
-      <div className={wrapper}>
+      <div className={`${wrapper} my-4`}>
 
         <Outlet/>
       </div>
