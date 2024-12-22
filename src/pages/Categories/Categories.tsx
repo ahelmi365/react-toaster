@@ -4,22 +4,22 @@ const Categories = () => {
   return (
     <Container>
       <Row className="justify-content-center g-2">
-        <Col sm={12} md={3} >
+        <Col xs={12} sm={6} md={3} className="d-flex justify-content-center" >
           <Category />
         </Col>
-        <Col sm={12} md={3} >
+        <Col xs={12} sm={6} md={3} className="d-flex justify-content-center" >
           <Category />
         </Col>
-        <Col sm={12} md={3} >
+        <Col xs={12} sm={6} md={3} className="d-flex justify-content-center" >
           <Category />
         </Col>
-        <Col sm={12} md={3} >
+        <Col xs={12} sm={6} md={3} className="d-flex justify-content-center" >
           <Category />
         </Col>
-        <Col sm={12} md={3} >
+        <Col xs={12} sm={6} md={3} className="d-flex justify-content-center" >
           <Category />
         </Col>
-        <Col sm={12} md={3} >
+        <Col xs={12} sm={6} md={3} className="d-flex justify-content-center" >
           <Category />
         </Col>
       </Row>
