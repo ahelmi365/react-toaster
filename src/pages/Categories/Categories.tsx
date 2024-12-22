@@ -10,9 +10,10 @@ const Categories = () => {
   );
 
   useEffect(() => {
-    dispatch(actGetCategories());
-    console.log({ records });
-  }, []);
+    if (records.length === 0) {
+      dispatch(actGetCategories());
+    }
+  }, [records]);
 
   const renderedCategories = records?.map((category) => (
     <Col
