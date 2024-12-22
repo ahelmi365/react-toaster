@@ -1,14 +1,23 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { HeaderBasket } from "../../eCommerce";
 
+
+import styles from "./styles.module.css";
+import { Badge } from "react-bootstrap";
+const { headerContainer, headerLogo } = styles;
 function Header() {
   return (
     <header>
-      
-      <Navbar expand="lg" className="bg-body-tertiary"
-      data-bs-theme="dark"
-      >
+      <div className={headerContainer}>
+        <h1 className={headerLogo}>
+          <span>our</span> <Badge bg="info">Ecom</Badge>
+        </h1>
+        <HeaderBasket />
+      </div>
+
+      <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
