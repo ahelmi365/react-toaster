@@ -8,9 +8,10 @@ import styles from "./styles.module.css";
 
 const { product, productImg } = styles;
 
-const Product = ({ id, title, img, price }: IProduct) => {
+const Product = ({ id, title, img, price, max, quantity }: IProduct) => {
   const dispatch = useAppDispatch();
-
+  const remainingItems = max - (quantity ?? 0);
+  const isReachedMax = remainingItems <= 0;
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   useEffect(() => {
@@ -34,11 +35,15 @@ const Product = ({ id, title, img, price }: IProduct) => {
       </div>
       <h2>{title}</h2>
       <h3>{price} EGP</h3>
+      <p className="text-danger">{isReachedMax && "You reached max"}</p>
+      {/* <h3>Max: {max}</h3>
+      <h3>Quantity: {quantity}</h3>
+      <h3>Available: {remainingItems}</h3> */}
       <Button
         variant="info"
         style={{ color: "white" }}
         onClick={handleAddToCart}
-        disabled={isButtonDisabled}
+        disabled={isButtonDisabled || isReachedMax}
       >
         {isButtonDisabled ? (
           <>
