@@ -16,7 +16,6 @@ const Product = ({ id, title, img, price }: IProduct) => {
   useEffect(() => {
     if (!isButtonDisabled) return;
 
-    setIsButtonDisabled(true);
     const timeoutId = setTimeout(() => {
       setIsButtonDisabled(false);
     }, 300);
