@@ -1,5 +1,6 @@
 import actGetCategories from "@store/categories/act/actGetCategories";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
+import Heading from "@components/common/Heading/Heading";
 import { Category } from "@components/eCommerce";
 import { Loading } from "@components/feedback";
 import { GridList } from "@components/common";
@@ -21,6 +22,7 @@ const Categories = () => {
   if (records) {
     return (
       <Container>
+        <Heading>Categories</Heading>
         <Loading status={loading} error={error}>
           <GridList
             records={records}
