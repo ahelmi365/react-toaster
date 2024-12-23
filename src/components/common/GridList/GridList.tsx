@@ -2,7 +2,7 @@ import { Col, Row } from "react-bootstrap";
 import React from "react";
 
 interface Identifiable {
-  id?: number;
+  id?: string;
 }
 
 interface IGridListProps<T extends Identifiable> {
