@@ -1,18 +1,36 @@
 .basketContainer {
-    position: relative;
-    cursor: pointer;
-    align-self: flex-end;
+  position: relative;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.basketQuantity {
+  background-color: #0dcaf0;
+  height: 22px;
+  width: 22px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid;
+  position: absolute;
+  top: -16px;
+  right: -5px;
+  font-size: 12px;
+}
+
+.animatedQuantity {
+  animation: pumb 300ms ease-in-out;
+}
+
+@keyframes pumb {
+  0% {
+    transform: translateY(0) scale(1);
   }
-  
-  .basketQuantity {
-    background-color: #0dcaf0;
-    height: 22px;
-    width: 22px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid;
-    position: absolute;
-    top: -16px;
-    right: -5px;
-    font-size: 12px;
+
+  50% {
+    transform: translateY(-10px) scale(1.2);
   }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
