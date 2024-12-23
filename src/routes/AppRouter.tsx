@@ -1,15 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import Categories from "@pages/Categories/Categories";
+import Register from "@pages/Register/Register";
+import Products from "@pages/Products/Products";
 // layout
 import MainLayout from "@layouts/MainLayout";
-// pages
-import Home from "@pages/Home/Home";
-import Categories from "@pages/Categories/Categories";
-import Products from "@pages/Products/Products";
 import AboutUs from "@pages/AboutUs/AboutUs";
 import Login from "@pages/Login/Login";
-import Register from "@pages/Register/Register";
 import Error from "@pages/Error/Error";
+// pages
+import Home from "@pages/Home/Home";
+import Cart from "@pages/Cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/categories",
