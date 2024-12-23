@@ -1,4 +1,4 @@
-import { selectTotalNumberOfItemsInCart } from "@store/cart/cartSlice";
+import { selectTotalNumberOfItemsInCart } from "@store/cart/selectors";
 import { BasketLogo } from "@components/common";
 import { useAppSelector } from "@store/hooks";
 

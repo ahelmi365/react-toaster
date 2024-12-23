@@ -1,6 +1,5 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { IProduct } from "@customTypes/product";
-import { RootState } from "@store/store";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface CartState {
   items: { [key: string]: number };
@@ -28,17 +27,6 @@ const cartSice = createSlice({
     },
   },
 });
-
-// Selector to get the total number of items in the cart
-export const selectTotalNumberOfItemsInCart = createSelector(
-  (state: RootState) => state.cart.items,
-  (items) => {
-    return Object.values(items).reduce(
-      (total, quantity) => total + quantity,
-      0
-    );
-  }
-);
 
 export const { addItemToCart } = cartSice.actions;
 export default cartSice.reducer;
