@@ -15,7 +15,7 @@ const GridList = <T extends Identifiable>({
   renderItem,
 }: IGridListProps<T>) => {
   return (
-    <Row className="justify-content-center g-2">
+    <Row className="justify-content-center g-4">
       {records?.map((record) => (
         <Col
           xs={12}
