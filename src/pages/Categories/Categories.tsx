@@ -1,8 +1,10 @@
+import actGetCategories from "@store/categories/act/actGetCategories";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { Col, Container, Row } from "react-bootstrap";
 import { Category } from "@components/eCommerce";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
-import actGetCategories from "@store/categories/act/actGetCategories";
+import { Loading } from "@components/feedback";
 import { useEffect } from "react";
+
 const Categories = () => {
   const dispatch = useAppDispatch();
   const { loading, error, records } = useAppSelector(
@@ -27,17 +29,12 @@ const Categories = () => {
     </Col>
   ));
 
-  // if (loading) {
-  //   return <p>Loading..</p>;
-  // }
-  // if (error) {
-  //   return <p>Error</p>;
-  // }
-
   if (records) {
     return (
       <Container>
-        <Row className="justify-content-center g-2">{renderedCategories}</Row>
+        <Loading status={loading} error={error}>
+          <Row className="justify-content-center g-2">{renderedCategories}</Row>
+        </Loading>
       </Container>
     );
   }
