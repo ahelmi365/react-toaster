@@ -9,10 +9,10 @@ import { Container } from "react-bootstrap";
 import { useEffect } from "react";
 
 const Products = () => {
-  const dispatch = useAppDispatch();
-  const { error, loading, records } = useAppSelector((state) => state.products);
   const params = useParams();
   const catPrefix = params.prefix;
+  const dispatch = useAppDispatch();
+  const { error, loading, records } = useAppSelector((state) => state.products);
   useEffect(() => {
     dispatch(actGetProductsByCategoryPrefix(catPrefix!));
 
