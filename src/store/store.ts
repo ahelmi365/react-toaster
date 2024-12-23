@@ -9,20 +9,19 @@ import productsSlice from "./products/productsSlice.ts";
 import cartSlice from "./cart/cartSlice.ts";
 
 //  persist config
-const persistConfig = {
-  key: "root",
+const cartPersistConfig = {
+  key: "cart",
   storage,
-  whiteList: ["cart"],
+  whiteList: ["items"],
 };
 
 const rootReducer = combineReducers({
   categories: categoriesSlice,
   products: productsSlice,
-  cart: cartSlice,
+  cart: persistReducer(cartPersistConfig, cartSlice),
 });
-const persistedReducer = persistReducer(persistConfig, rootReducer);
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
 });
 const presistor = persistStore(store);
 
