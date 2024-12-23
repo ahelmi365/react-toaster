@@ -11,20 +11,23 @@ const { product, productImg } = styles;
 const Product = ({ id, title, img, price }: IProduct) => {
   const dispatch = useAppDispatch();
 
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   useEffect(() => {
-    if (!isButtonClicked) return;
+    if (!isButtonDisabled) return;
 
     setIsButtonDisabled(true);
     const timeoutId = setTimeout(() => {
       setIsButtonDisabled(false);
-      setIsButtonClicked(false);
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [isButtonClicked]);
+  }, [isButtonDisabled]);
+
+  const handleAddToCart = () => {
+    dispatch(addItemToCart(id));
+    setIsButtonDisabled(true);
+  };
   return (
     <div className={product}>
       <div className={productImg}>
@@ -35,15 +38,12 @@ const Product = ({ id, title, img, price }: IProduct) => {
       <Button
         variant="info"
         style={{ color: "white" }}
-        onClick={() => {
-          dispatch(addItemToCart(id));
-          setIsButtonClicked(true);
-        }}
+        onClick={handleAddToCart}
         disabled={isButtonDisabled}
       >
         {isButtonDisabled ? (
           <>
-            <Spinner animation="border" size="sm" /> Loading...
+            Loading... <Spinner animation="border" size="sm" />
           </>
         ) : (
           "Add to cart"
