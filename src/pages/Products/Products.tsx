@@ -12,20 +12,27 @@ const Products = () => {
   const params = useParams();
   const catPrefix = params.prefix;
   const dispatch = useAppDispatch();
+  const cartItems = useAppSelector((state) => state.cart.items);
   const { error, loading, records } = useAppSelector((state) => state.products);
+
+  //  a variable to store records with number of items in the cart fo each item
+  const productsWithQuantity = records.map((product) => {
+    return { ...product, quantity: cartItems[product.id!] || 0 };
+  });
+
   useEffect(() => {
     dispatch(actGetProductsByCategoryPrefix(catPrefix!));
 
     return () => {
       dispatch(resetProductsRecords());
     };
-  }, [catPrefix]);
+  }, [catPrefix, dispatch]);
 
   return (
     <Container>
       <Loading status={loading} error={error}>
         <GridList
-          records={records}
+          records={productsWithQuantity}
           renderItem={(product) => <Product {...product} />}
         />
       </Loading>
