@@ -7,13 +7,13 @@ import Nav from "react-bootstrap/Nav";
 import { HeaderBasket } from "../../eCommerce";
 import styles from "./styles.module.css";
 
-const { headerContainer, headerLogo } = styles;
+const { headerContainer, headerLogo, eLogo } = styles;
 function Header() {
   return (
     <header>
       <div className={headerContainer}>
         <h1 className={headerLogo}>
-          <span>our</span> <Badge bg="info">Ecom</Badge>
+          <span className={eLogo}>e</span> <Badge bg="info">Com</Badge>
         </h1>
         <HeaderBasket />
       </div>
