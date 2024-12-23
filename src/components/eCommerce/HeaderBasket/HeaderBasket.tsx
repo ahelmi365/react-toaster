@@ -2,6 +2,7 @@ import { selectTotalNumberOfItemsInCart } from "@store/cart/selectors";
 import { BasketLogo } from "@components/common";
 import { useAppSelector } from "@store/hooks";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./styles.module.css";
 
@@ -25,7 +26,11 @@ const HeaderBasket = () => {
     return () => clearTimeout(timeoutId);
   }, [totalNumberOfItemsInCart]);
   return (
-    <div className={basketContainer}>
+    <Link
+      to="/cart"
+      className={basketContainer}
+      style={{ textDecoration: "none", color: "black" }}
+    >
       <div className={basketCart}>
         <BasketLogo />
         <div
@@ -35,7 +40,7 @@ const HeaderBasket = () => {
         </div>
       </div>
       <h3>Cart</h3>
-    </div>
+    </Link>
   );
 };
 
