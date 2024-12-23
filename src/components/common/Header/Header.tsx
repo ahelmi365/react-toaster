@@ -1,11 +1,12 @@
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { HeaderBasket } from "../../eCommerce";
 import { NavLink } from "react-router-dom";
-
-import styles from "./styles.module.css";
 import { Badge } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
+
+import { HeaderBasket } from "../../eCommerce";
+import styles from "./styles.module.css";
+
 const { headerContainer, headerLogo } = styles;
 function Header() {
   return (
