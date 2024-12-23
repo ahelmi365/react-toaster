@@ -1,5 +1,7 @@
 // css
 import "bootstrap/dist/css/bootstrap.min.css";
+// axios
+import "./services/axios-global.js";
 import "@styles/global.css";
 
 import { PersistGate } from "redux-persist/integration/react";
