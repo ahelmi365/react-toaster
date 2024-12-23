@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { Col, Container, Row } from "react-bootstrap";
 import { Category } from "@components/eCommerce";
 import { Loading } from "@components/feedback";
+import { GridList } from "@components/common";
 import { useEffect } from "react";
 
 const Categories = () => {
@@ -34,6 +35,10 @@ const Categories = () => {
       <Container>
         <Loading status={loading} error={error}>
           <Row className="justify-content-center g-2">{renderedCategories}</Row>
+          <GridList
+            records={records}
+            renderItem={(category) => <Category {...category} />}
+          />
         </Loading>
       </Container>
     );
