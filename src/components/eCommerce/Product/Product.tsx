@@ -1,14 +1,14 @@
 import { addItemToCart } from "@store/cart/cartSlice";
+import { memo, useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { IProduct } from "@customTypes/product";
 import { useAppDispatch } from "@store/hooks";
-import { useEffect, useState } from "react";
 
 import styles from "./styles.module.css";
 
 const { product, productImg } = styles;
 
-const Product = ({ id, title, img, price, max, quantity }: IProduct) => {
+const Product = memo(({ id, title, img, price, max, quantity }: IProduct) => {
   const dispatch = useAppDispatch();
   const remainingItems = max - (quantity ?? 0);
   const isReachedMax = remainingItems <= 0;
@@ -55,6 +55,6 @@ const Product = ({ id, title, img, price, max, quantity }: IProduct) => {
       </Button>
     </div>
   );
-};
+});
 
 export default Product;
