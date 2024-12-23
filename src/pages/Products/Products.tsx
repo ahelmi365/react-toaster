@@ -1,6 +1,7 @@
 import actGetProductsByCategoryPrefix from "@store/products/act/actGetProductsByCategoryPrefix";
 import { resetProductsRecords } from "@store/products/productsSlice";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
+import Heading from "@components/common/Heading/Heading";
 import { Product } from "@components/eCommerce";
 import { Loading } from "@components/feedback";
 import { GridList } from "@components/common";
@@ -30,6 +31,10 @@ const Products = () => {
 
   return (
     <Container>
+      <Heading>
+        {" "}
+        <span className="text-capitalize">{params.prefix}</span> Products
+      </Heading>
       <Loading status={loading} error={error}>
         <GridList
           records={productsWithQuantity}
