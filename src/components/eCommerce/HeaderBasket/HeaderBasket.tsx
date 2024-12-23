@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 
 import styles from "./styles.module.css";
 
-const { basketContainer, basketQuantity, animatedQuantity } = styles;
+const { basketContainer, basketQuantity, animatedQuantity, basketCart } =
+  styles;
 
 const HeaderBasket = () => {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -25,12 +26,15 @@ const HeaderBasket = () => {
   }, [totalNumberOfItemsInCart]);
   return (
     <div className={basketContainer}>
-      <BasketLogo />
-      <div
-        className={`${basketQuantity} ${isAnimated ? animatedQuantity : ""} `}
-      >
-        {totalNumberOfItemsInCart}
+      <div className={basketCart}>
+        <BasketLogo />
+        <div
+          className={`${basketQuantity} ${isAnimated ? animatedQuantity : ""} `}
+        >
+          {totalNumberOfItemsInCart}
+        </div>
       </div>
+      <h3>Cart</h3>
     </div>
   );
 };
