@@ -1,10 +1,8 @@
 import { TCategoryPrefix } from "./shared";
 
 export interface ICategory {
-  id?: number;
+  id?: string;
   title: string;
   prefix: TCategoryPrefix;
   img: string | null;
 }
-
-
