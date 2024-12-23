@@ -1,5 +1,5 @@
-import { IProduct } from "@customTypes/product";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { IProduct } from "@customTypes/product";
 import axios, { isAxiosError } from "axios";
 
 const actGetProductsByCategoryPrefix = createAsyncThunk(
@@ -11,7 +11,6 @@ const actGetProductsByCategoryPrefix = createAsyncThunk(
         `http://localhost:5005/products?cat_prefix=${prefix}`
       );
       const products = response.data;
-      console.log({ products });
       return products;
     } catch (error) {
       if (isAxiosError(error)) {
