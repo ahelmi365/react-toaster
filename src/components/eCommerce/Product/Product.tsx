@@ -1,5 +1,5 @@
+import { memo, useCallback, useEffect, useState } from "react";
 import { addItemToCart } from "@store/cart/cartSlice";
-import { memo, useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { IProduct } from "@customTypes/product";
 import { useAppDispatch } from "@store/hooks";
@@ -23,11 +23,11 @@ const Product = memo(({ id, title, img, price, max, quantity }: IProduct) => {
 
     return () => clearTimeout(timeoutId);
   }, [isButtonDisabled]);
-
-  const handleAddToCart = () => {
+  const handleAddToCart = useCallback(() => {
     dispatch(addItemToCart(id));
     setIsButtonDisabled(true);
-  };
+  }, [id, dispatch]);
+
   return (
     <div className={product}>
       <div className={productImg}>
